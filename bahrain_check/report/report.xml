@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<report id="action_report_check"
+            string="Write Check"
+            model="account.payment"
+            report_type = "qweb-pdf"
+            file="bahrain_check.report_check"
+            name="bahrain_check.report_check"
+		/>
+        <record id="bahrain_check.action_report_check" model="ir.actions.report">
+            <field name="paperformat_id" ref="bahrain_check.paperformat_check"/>
+        </record>
+    </data>
+</odoo>

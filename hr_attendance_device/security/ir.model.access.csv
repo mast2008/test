@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_device_user,hr.attendance.device.user,model_hr_attendance_device,hr.group_hr_user,1,0,0,0
+access_hr_attendance_device_manager,hr.attendance.device.manager,model_hr_attendance_device,hr.group_hr_manager,1,1,1,1
+access_hr_document_user,hr.document.user,model_hr_document,hr.group_hr_user,1,1,1,1

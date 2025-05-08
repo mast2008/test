@@ -1,0 +1,18 @@
+<odoo>
+	<data>
+	
+		<report 
+            id="partner_ledger_report_id"
+            model="partner.ledger.wizard"
+            string="Receivable Payable Report"
+            report_type="xlsx"
+            name="partner_ledger_report_xlsx"
+            file= "partner_ledger_report.xlsx"
+            attachment_use="False"
+            menu="False"
+        />
+        
+
+     </data>
+</odoo>
+        

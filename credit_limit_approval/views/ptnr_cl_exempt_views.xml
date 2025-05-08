@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ptnr_cl_exempt_apvl_view_search" model="ir.ui.view">
+        <field name="name">ptnr.cl.exempt.search</field>
+        <field name="model">ptnr.cl.exempt</field>
+        <field name="arch" type="xml">
+            <search string="Credit Limit Exemption Approval">
+                <field name="partner_id"/>
+                <field name="company_id"/>
+                <field name="state"/>
+                <filter string="To Approve" name='filter_state_to_approve' domain="[('state','=','to_approve')]"/>
+                <filter string="Approved" name='filter_state_approved' domain="[('state','=','approved')]" />
+                <filter string="Rejected" name='filter_state_rejected' domain="[('state','=','rejected')]" />
+                <group expand="0" string="Group By">
+                    <filter string="Status" name='group_by_state' domain="[]" context="{'group_by': 'state'}"/>
+                    <filter string="Requested Date" name='group_by_date_requested' domain="[]" context="{'group_by': 'date_requested'}"/>
+                    <filter string="Approved Date" name='group_by_date_decision' domain="[]" context="{'group_by': 'date_decision'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="ptnr_cl_exempt_apvl_view_form" model="ir.ui.view">
+        <field name="name">ptnr.cl.exempt.form</field>
+        <field name="model">ptnr.cl.exempt</field>
+        <field name="arch" type="xml">
+            <form string="Credit Limit Exemption Approval" create="0" edit="0">
+                <header>
+                    <button name="action_approve" states="to_approve" string="Approve" type="object" class="oe_highlight"/>
+                    <button name="action_reject" confirm="Are you sure you want to reject this request?"  states="to_approve,approved" string="Reject" type="object" class="btn-danger"/>
+                    <button name="action_set_to_to_approve" string="Set to Approve" states="rejected" type="object" data-hotkey="d"/>
+                    <field name="state" widget="statusbar" statusbar_visible="to_approve,approved"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" readonly="1" attrs="{'readonly': [('state', '!=', 'to_approve')]}"/>
+                            <field name="date_requested" readonly="1" attrs="{'readonly': [('state', '!=', 'to_approve')]}"/>
+                            <field name="date_decision" readonly="1" attrs="{'invisible': [('date_decision', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="sale_order_id" readonly="1" attrs="{'invisible': [('sale_order_id', '=', False)]}"/>
+                            <field name="company_id" readonly="1" groups="base.group_multi_company" options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="ptnr_cl_exempt_apvl_kanban">
+        <field name="name">ptnr.cl.exempt.kanban</field>
+        <field name="model">ptnr.cl.exempt</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1" create="0" edit="0">
+                <field name="partner_id" />
+                <field name="date_requested" />
+                <field name="state" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <span>
+                                            <field name="partner_id"/>
+                                        </span>
+                                    </strong>
+                                </div>
+                                <field name="state" widget="label_selection" options="{'classes': {'to_approve': 'secondary', 'rejected': 'warning'}}"/>
+                            </div>
+                            <!--
+                            <div class="o_kanban_record_body">
+                                <field name="partner_id" />
+                            </div>
+                            -->
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span><field name="date_requested" /></span>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="date_decision"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ptnr_cl_exempt_apvl_view_list_action" model="ir.actions.act_window">
+        <field name="name">Credit Limit Exemption Approval</field>
+        <field name="res_model">ptnr.cl.exempt</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="search_view_id" ref="ptnr_cl_exempt_apvl_view_search"/>
+        <field name="context">{}</field>
+    </record>
+    
+    <record id="ptnr_cl_exempt_apvl_view_list" model="ir.ui.view">
+        <field name="name">ptnr.cl.exempt.list</field>
+        <field name="model">ptnr.cl.exempt</field>
+        <field name="arch" type="xml">
+            <tree string="Credit Limit Exemption Approval" create="0" edit="0">
+                <field name="partner_id"/>
+                <field name="date_requested"/>
+                <field name="date_decision"/>
+                <field name="state"
+                       widget="badge"
+                       decoration-info="state == 'to_approve'"
+                       decoration-danger="state == 'rejected'"
+                       decoration-success="state == 'approved'" />
+            </tree>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_ptnr_cl_exempt_apvl"
+        action="ptnr_cl_exempt_apvl_view_list_action"
+        parent="sale.menu_sale_config"
+        name="Credit Limit Exemption Approval"
+        />
+</odoo>

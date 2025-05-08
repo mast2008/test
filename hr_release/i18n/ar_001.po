@@ -1,0 +1,388 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_release
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210314\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-28 08:00+0000\n"
+"PO-Revision-Date: 2021-10-28 08:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_needaction
+msgid "Action Needed"
+msgstr "الإجراءات اللازمة"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_form
+msgid "Add a note .."
+msgstr "أضف ملاحظة .."
+
+#. module: hr_release
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release__state__approve
+msgid "Approved"
+msgstr "وافق"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__calculate_id
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__calculate_ids
+msgid "Calculation"
+msgstr "عملية حسابية"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: hr_release
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release__state__cancel
+msgid "Cancelled"
+msgstr "ألغيت"
+
+#. module: hr_release
+#: model_terms:ir.actions.act_window,help:hr_release.action_hr_release
+msgid "Click here to create a Release request."
+msgstr "انقر هنا لإنشاء طلب تحرير."
+
+#. module: hr_release
+#: model_terms:ir.actions.act_window,help:hr_release.action_hr_release_reason
+msgid "Click here to create new reason."
+msgstr "انقر هنا لإنشاء سبب جديد."
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__company_id
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release__release_by__company
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release_compute__release_by__company
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_form
+msgid "Confirm"
+msgstr "يتأكد"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__create_uid
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__create_uid
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__create_date
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__create_date
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_form
+msgid "Current Release"
+msgstr "الأصدار الحالي"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__name
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__name
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__display_name
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__display_name
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__effective_date
+msgid "Effective Date"
+msgstr "تاريخ التنفيذ"
+
+#. module: hr_release
+#: model:ir.model,name:hr_release.model_hr_employee
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__employee_id
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release__release_by__employee
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release_compute__release_by__employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_release
+#: model:ir.model,name:hr_release.model_hr_release
+msgid "Employees Release"
+msgstr "الأفراج عن الموظفين"
+
+#. module: hr_release
+#: model:ir.model,name:hr_release.model_hr_release_reason
+msgid "Employees Release Reasons"
+msgstr "أسباب الإفراج عن الموظفين"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_follower_ids
+msgid "Followers"
+msgstr "متابعون"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__id
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__id
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: hr_release
+#: model:ir.model.fields,help:hr_release.field_hr_release__message_needaction
+#: model:ir.model.fields,help:hr_release.field_hr_release__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها ، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: hr_release
+#: model:ir.model.fields,help:hr_release.field_hr_release__message_has_error
+#: model:ir.model.fields,help:hr_release.field_hr_release__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_employee__indemnity_amount
+msgid "Indemnity"
+msgstr "التعويض"
+
+#. module: hr_release
+#: model:hr.salary.rule,name:hr_release.hr_rule_indemnity_release
+msgid "Indemnity (Release)"
+msgstr "التعويض (الإفراج)"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_is_follower
+msgid "Is Follower"
+msgstr "تابع"
+
+#. module: hr_release
+#: code:addons/hr_release/models/hr_release.py:0
+#, python-format
+msgid "It is not allowed to delete a release that already approved."
+msgstr "لا يجوز حذف إصدار تمت الموافقة عليه بالفعل."
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_release.field_hr_release____last_update
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute____last_update
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__write_uid
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__write_uid
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__write_date
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__write_date
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__minimum_years
+msgid "Minimum Years"
+msgstr "الحد الأدنى من السنوات"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_reason__name
+msgid "Name"
+msgstr "الأسم"
+
+#. module: hr_release
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release__state__new
+msgid "New"
+msgstr "جديد"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: hr_release
+#: model:ir.model.fields,help:hr_release.field_hr_release__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: hr_release
+#: model:ir.model.fields,help:hr_release.field_hr_release__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: hr_release
+#: model:ir.model.fields,help:hr_release.field_hr_release__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: hr_release
+#: code:addons/hr_release/models/hr_release.py:0
+#, python-format
+msgid "Only a cancel or reject release can be set to new."
+msgstr "يمكن فقط تعيين إصدار إلغاء أو رفض على إصدار جديد."
+
+#. module: hr_release
+#: code:addons/hr_release/models/hr_release.py:0
+#, python-format
+msgid "Only an new release can be cancel."
+msgstr "يمكن إلغاء الإصدار الجديد فقط."
+
+#. module: hr_release
+#: code:addons/hr_release/models/hr_release.py:0
+#, python-format
+msgid "Only an new release can be confirm."
+msgstr "يمكن تأكيد الإصدار الجديد فقط."
+
+#. module: hr_release
+#: code:addons/hr_release/models/hr_release.py:0
+#, python-format
+msgid "Only an new release can be reject."
+msgstr "يمكن رفض إصدار جديد فقط."
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__percentage_salary
+msgid "Percentage"
+msgstr "النسبة المئوية"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__reason
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__reason_id
+msgid "Reason"
+msgstr "السبب"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_reason_view_tree
+msgid "Reasons"
+msgstr "الاسباب"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: hr_release
+#: model:ir.model.fields.selection,name:hr_release.selection__hr_release__state__reject
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: hr_release
+#: model:ir.actions.act_window,name:hr_release.action_hr_release
+#: model:ir.ui.menu,name:hr_release.hr_menu_release
+msgid "Release"
+msgstr "أفرج"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__release_by
+#: model:ir.model.fields,field_description:hr_release.field_hr_release_compute__release_by
+msgid "Release By"
+msgstr "الافراج عن طريق"
+
+#. module: hr_release
+#: model:ir.model,name:hr_release.model_hr_release_compute
+msgid "Release Computation"
+msgstr "تحرير الحساب"
+
+#. module: hr_release
+#: model:ir.actions.act_window,name:hr_release.action_hr_release_reason
+#: model:ir.ui.menu,name:hr_release.hr_menu_release_reason
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_reason_view_form
+msgid "Release Reasons"
+msgstr "أسباب الإصدار"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_tree
+msgid "Releases"
+msgstr "إطلاق"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: hr_release
+#: model_terms:ir.ui.view,arch_db:hr_release.hr_release_view_form
+msgid "Set to Draft"
+msgstr "تعيين إلى مسودة"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_unread
+msgid "Unread Messages"
+msgstr "رسائل غير مقروءة"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل غير المقروءة"
+
+#. module: hr_release
+#: model:ir.model.fields,field_description:hr_release.field_hr_release__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: hr_release
+#: model:ir.model.fields,help:hr_release.field_hr_release__website_message_ids
+msgid "Website communication history"
+msgstr "سجل اتصال الموقع"

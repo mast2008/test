@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_barcode_line_sale_manager,product.barcode.line.sale.manager,model_product_barcode_line,sales_team.group_sale_manager,1,1,1,1
+access_product_barcode_line_pos_manager,product.barcode.line.pos.manager,model_product_barcode_line,point_of_sale.group_pos_manager,1,1,1,1
+access_product_barcode_line_stock_manager,product.barcode.line.stock.manager,model_product_barcode_line,stock.group_stock_manager,1,1,1,1
+access_product_barcode_line_user,product.barcode.line.user,model_product_barcode_line,base.group_user,1,0,0,0

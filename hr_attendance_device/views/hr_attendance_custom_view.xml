@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='hr_attendance_device_tree'>
+            <field name="name">hr.attendance.device.tree</field>
+            <field name="model">hr.attendance.device</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="ip" />
+                    <field name="port" />
+                    <field name="status" />
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model='ir.ui.view' id='hr_attendance_device_form'>
+            <field name="name">hr.attendance.device.form</field>
+            <field name="model">hr.attendance.device</field>
+            <field name="arch" type="xml">
+                <form string="Finger Print">
+                <header>
+                        <button name="check_fingerprint" type="object" class="oe_highlight" string="Check Connection"/>
+                        <button name="get_fingerprint" type="object" class="oe_highlight" string="Retrieve Data"/>
+                        <button name="clear_fingerprint" type="object" class="oe_highlight" string="Clear Data"/>
+                    </header>
+                    <sheet>
+                    <group col="2">
+                            <group>
+                                <field name="name" />
+                                <field name="ip" />
+                                <field name="hours" />
+                                <field name="sign" />
+                            </group>
+                            <group>
+                                <field name="status" />
+                                <field name="port" />
+                                <field name="timezone" />
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+		
+		<record model='ir.actions.act_window' id='hr_attendance_device_act'>
+            <field name="name">Finger Print</field>
+            <field name="res_model">hr.attendance.device</field>
+            <field name="view_mode">tree,form</field>
+			<field name="view_id" ref="hr_attendance_device_tree"/>
+            <field name="help" type="html">
+              <p>
+                Click to create a finger print device.
+              </p>
+            </field>
+        </record>
+		
+		<record id="action_device_tree_view" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hr_attendance_device_tree"/>
+            <field name="act_window_id" ref="hr_attendance_device_act"/>
+        </record>
+		
+		<record id="action_device_form_view" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_attendance_device_form"/>
+            <field name="act_window_id" ref="hr_attendance_device_act"/>
+        </record>
+        
+        <menuitem action="hr_attendance_device_act" parent="hr_attendance.menu_hr_attendance_settings" id="hr_attendance_device_menu" groups="hr.group_hr_manager"/>
+        
+        <menuitem action="hr_attendance.action_hr_attendance_settings" parent="hr_attendance.menu_hr_attendance_settings" id="hr_attendance_reason_menu" groups="hr.group_hr_manager"/>
+		
+		<record model='ir.ui.view' id='hr_document_form'>
+            <field name="name">hr.document.form</field>
+            <field name="model">hr.document</field>
+            <field name="arch" type="xml">
+                <form string="Documents">
+                    <sheet>
+                    <group>
+                          <field name="name" />
+                          <field name="number" />
+                          <field name="expiry" />
+                          <field name="reminder" />
+                          <field name="employee" />
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_document_filter" model="ir.ui.view">
+            <field name="name">hr.document.filter</field>
+            <field name="model">hr.document</field>
+            <field name="arch" type="xml">
+                <search string="Documents">
+                    <field name="name"/>
+                    <field name="employee" />
+                    <field name="expiry"/>
+                    <filter name="soon" string="Due soon" icon="terp-personal" domain="[('document_renewal_due_soon','=','True')]"/>
+                    <filter name="overdue" string="Overdue" icon="terp-personal+" domain="[('document_renewal_overdue','=','True')]"/>
+                    <group expand="1" string="Group By">
+                        <filter name="employee" string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+		
+		        <record model='ir.ui.view' id='hr_document_tree'>
+            <field name="name">hr.document.tree</field>
+            <field name="model">hr.document</field>
+            <field name="arch" type="xml">
+                <tree decoration-warning="document_renewal_due_soon==True and document_renewal_overdue==False" decoration-danger="document_renewal_overdue==True">
+                    <field name="employee" />
+                    <field name="name" />
+                    <field name="number" />
+                    <field name="expiry" />
+                    <field name="document_renewal_due_soon" invisible="1"/>
+                    <field name="document_renewal_overdue" invisible="1" />
+                </tree>
+            </field>
+        </record>
+
+		<record model='ir.actions.act_window' id='hr_document_act'>
+            <field name="name">Documents</field>
+            <field name="res_model">hr.document</field>
+            <field name="view_mode">tree,form</field>
+			<field name="view_id" ref="hr_document_tree"/>
+            <field name="search_view_id" ref="view_document_filter"/>
+            <field name="help" type="html">
+              <p>
+                Click to create an employee document.
+              </p>
+            </field>
+        </record>
+		
+		<record id="action_document_tree_view" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hr_document_tree"/>
+            <field name="act_window_id" ref="hr_document_act"/>
+        </record>
+		
+		<record id="action_document_form_view" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_document_form"/>
+            <field name="act_window_id" ref="hr_document_act"/>
+        </record>
+
+        <menuitem action="hr_document_act" id="hr_menu_document" parent="hr.menu_hr_root" name="Documents" sequence="4" groups="hr.group_hr_user"/>
+        
+        <record id="hr_employee_form_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="fingerid" />
+                    <field name="fingerprint" domain="[('company_id', '=', company_id)]"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

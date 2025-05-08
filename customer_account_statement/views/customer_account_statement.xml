@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2018 ForgeFlow, S.L. (https://www.forgeflow.com)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="action_print_customer_account_statement_xlsx" model="ir.actions.report">
+        <field name="name">Customer Account Statement XLSX</field>
+        <field name="model">res.partner</field>
+        <field name="type">ir.actions.report</field>
+        <field name="report_name">p_s.report_customer_account_statement_xlsx</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_file">report_customer_account_statement</field>
+    </record>
+</odoo>

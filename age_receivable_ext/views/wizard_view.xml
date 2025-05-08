@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model='ir.ui.view' id='wizard_receivable_form'>
+            <field name="name">wizard.aged.receivable.history.form</field>
+            <field name="model">wizard.aged.receivable.history</field>
+            <field name="arch" type="xml">
+                <form string="Wizard">
+                        <group string="Information">
+                            <field name="receivable" invisible="1"/>
+							<!--<field name="payable"/>-->
+                            <field name="date_from" />
+							<field name="date_to" />
+							<field name="days" invisible="1"/>
+                        </group>
+                    <footer>
+                        <button name="export_xls" type="object" default_focus="1"
+                                string="Export Excel" class="oe_highlight"
+                                context="{'xls_export':1}" />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record model='ir.actions.act_window' id='wizard_receivable_act'>
+            <field name="name">Export Aged Receivable in Excel</field>
+            <field name="res_model">wizard.aged.receivable.history</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_receivable_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <report
+            id="ageing_receivable_xlsx"
+            model="account.move"
+            string=" "
+            report_type="xlsx"
+            name="age_receivable_ext.xlsx_age_receivable"
+            file="age_receivable_ext.xlsx_age_receivable"
+            attachment_use="False"
+        />
+        <menuitem name="Aged Receivable" parent="account.account_reports_management_menu" id="aged_receivable_excel" action="wizard_receivable_act" sequence="1"/>
+    </data>
+</openerp>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!--
+     <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-esc='props.line.get_unit().name'][1]" position="replace">
+           <t t-esc="props.line.get_uomStr()" />
+        </xpath>
+          have two same occurance - [1] called agian - because after first replace it's only 1
+         <xpath expr="//t[@t-esc='props.line.get_unit().name'][1]" position="replace">
+           <t t-esc="props.line.get_uomStr()" />
+        </xpath>
+    </t>
+    -->
+</templates>
+

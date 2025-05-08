@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve" inherit_id="point_of_sale.template">
+
+    <!--<t t-extend="ClientDetails">
+        <t t-jquery="div.client-details-right" t-operation="append">
+            <div class='client-detail'>
+                <span class='label'>Reference</span>
+                <t t-if='partner.ref'>
+                    <span class='detail client-id'><t t-esc='partner.ref'/></span>
+                </t>
+                <t t-if='!partner.ref'>
+                    <span class='detail client-id empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+    </t>-->
+    <t t-name="ClientDetailsEdit" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('client-details-right')]" position="inside">
+            <div class="client-detail">
+                <span class="label">Reference</span>
+                <input class="detail client-reference" name="ref"
+                       t-on-change="captureChange" t-att-value="props.partner.ref || ''"
+                       placeholder="0"/>
+            </div>
+        </xpath>
+
+    </t>
+    <!--<t t-extend="ClientLine">
+    	<t t-jquery="t[t-esc='partner.name']" t-operation="before">
+			<t t-if="partner.ref">
+				[<t t-esc='partner.ref' />]
+			</t>
+		</t>
+    </t>-->
+    <t t-name="ClientLine" t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr/td[1]" position="before">
+            <td>
+                <t t-esc="props.partner.ref or ''" />
+                <span t-if="highlight"><br/></span>
+            </td>
+        </xpath>
+    </t>
+    <t t-name="ClientListScreen" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr/th[1]" position="before">
+            <th>Reference</th>
+        </xpath>
+    </t>
+
+    <!--<t t-extend="ActionpadWidget">
+    	<t t-jquery="t[t-esc='client.name']" t-operation="before">
+			<t t-if="client.ref">
+				[<t t-esc='client.ref' />]
+			</t>
+		</t>
+    </t>-->
+
+    <t t-name="ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('actionpad')]/button[1]" position="inside">
+        	<t t-if="client and client.ref">
+				[<t t-esc='client.ref' />]
+			</t>
+		</xpath>
+    </t>
+
+
+</template>
+
+
+
+
+
+
+
+

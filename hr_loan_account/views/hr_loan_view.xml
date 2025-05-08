@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_loan_view_form" model="ir.ui.view">
+        <field name="name">hr.loan.form</field>
+        <field name="model">hr.loan</field>
+		<field name="inherit_id" ref="hr_loan.hr_loan_view_form"/>
+        <field name="arch" type="xml">
+						<field name="installment" position="after">
+							<field name="payment_id" />
+							<field name="move_id" />
+						</field>
+                        <field name="balance" position="after">
+							<field name="journal_id" />
+				<field name="account_id" />
+							<field name="create_uid" invisible="1" />
+                        </field>
+        </field>
+    </record>
+	
+</odoo>

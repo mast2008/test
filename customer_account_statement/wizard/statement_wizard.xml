@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2018 ForgeFlow, S.L. (https://www.forgeflow.com)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- wizard action on res.partner -->
+    <!--<record id="activity_statement_wizard_action" model="ir.actions.act_window">
+        <field name="name">Partner Activity Statement</field>
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="res_model">activity.statement.wizard</field>
+        <field name="view_mode">form</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('partner_statement.group_activity_statement'))]"
+        />
+        <field name="target">new</field>
+    </record>-->
+    <record id="customer_account_statement_wizard_action" model="ir.actions.act_window">
+        <field name="name">Customer Account Statement</field>
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="res_model">customer.account.statement.wizard</field>
+        <field name="view_mode">form</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('customer_account_statement.group_customer_account_statement'))]"
+        />
+        <field name="target">new</field>
+    </record>
+    <!-- wizard view -->
+    <record id="customer_account_statement_view" model="ir.ui.view">
+        <field name="name">Customer Account Statement Wizard View</field>
+        <field name="model">customer.account.statement.wizard</field>
+        <field name="arch" type="xml">
+            <form name="Report Options">
+                <div style="text-align:justify" name="info">
+                    <span
+                        class="o_form_label"
+                    >Aging details can be shown in the report, expressed in aging
+        buckets, so the partner can review how much is open, due or overdue.
+                    </span>
+                </div>
+                <hr />
+                <group>
+                    <group name="main_info">
+                        <label for="account_type" />
+                        <field name="account_type" nolabel="1" widget="radio" />
+                        <field
+                            name="company_id"
+                            options="{'no_create': True}"
+                            groups="base.group_multi_company"
+                        />
+                    </group>
+                    <group name="aging_report">
+                        <field name="date_end" />
+                        <field name="show_aging_buckets" />
+                        <!--<field name="aging_type" />-->
+                    </group>
+                </group>
+
+                <footer>
+                    <button
+                        name="button_export_xlsx"
+                        string="Export XLSX"
+                        type="object"
+                    />
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<template id="report_delivery_document" inherit_id="stock.report_delivery_document">
+		<div class="page" position="after">
+			<br/><br/>
+			<div class="row" style="font-weight:bold;font-size:16px">
+				<div class="col-6 float-left text-left" >
+						<div>Prepared By: ____________________</div>
+						<br/><br/>
+						<div style="margin-left:14.5%;" >
+							Sign: ____________________
+						</div>
+				</div>
+				<div class="col-6 text-right float-right">
+						<div>Received By: ____________________</div>
+						<br/><br/>
+						<div>Sign: ____________________</div>
+				</div>
+			</div>
+		</div>		
+		<xpath expr="//t[@t-set='partner']" position="before">
+			<h4 class="text-center">Goods Receipt Note</h4>
+			<br/>
+		</xpath>
+		<div name="div_sched_date" position="after">
+			<div t-if="o.picking_type_code in ['incoming','internal']" class="col-auto">
+				<strong t-if="o.picking_type_code == 'incoming' ">Delivery To: </strong>
+              	<strong t-if="o.picking_type_code == 'internal' ">Local Transfer: </strong>
+				<br/>
+				<span t-field="o.location_dest_id" t-if="o.picking_type_code == 'incoming' "/>
+                 <t t-if="o.picking_type_code == 'internal' ">
+                 	<span t-field="o.location_id"/>
+                 	<span>&#10132;</span>
+                 	<span t-field="o.location_dest_id"/>
+                 </t>
+			</div>
+		</div>
+	</template>
+</odoo>

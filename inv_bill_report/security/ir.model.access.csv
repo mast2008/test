@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inv_bill_rpt_wiz_all,inv.bill.rpt.wiz all,model_inv_bill_rpt_wiz,account.group_account_invoice,1,1,1,1

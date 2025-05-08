@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_xlsx_inv_bill" model="ir.actions.report">
+        <field name="name">Sale &amp; Purchase (Tax) Report</field>
+        <field name="model">inv.bill.rpt.wiz</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inv_bill_report</field>
+        <field name="report_file">inv_bill_report</field>
+    </record>
+</odoo>

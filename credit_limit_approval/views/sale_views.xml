@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="action_send_to_cl_exempt_approval" attrs="{'invisible':['|',('ptnr_cl_exempt_id','!=',False),('state','not in',('draft','sent'))]}" type="object" string="Send To Credit Limit Exemption Approval"/>
+                <button name="action_send_to_cl_exempt_approval" attrs="{'invisible':['|',('ptnr_cl_exempt_id','=',False),('state','not in',('draft','sent'))]}" type="object" string="Re-send To Credit Limit Exemption Approval"/>
+            </header>
+            <field name="origin" position="after">
+                <field name="ptnr_cl_exempt_id" readonly="1"/>
+            </field>
+        </field>
+    </record>
+</odoo>

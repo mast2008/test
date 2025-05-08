@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_category_property_form" model="ir.ui.view">
+        <field name="name">partner.over.credit.limit.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <field name="property_account_position_id" position="after">
+                <field name="credit_limit" groups="partner_credit_limit.group_partner_credit_limit" />
+				<!--<field name="credit_perday" groups="sales_team.group_sale_manager"/>-->
+                <field name="credit_days" groups="partner_credit_limit.group_partner_credit_limit" string="Credit Days(To check previously unpaid invoice)"/>
+                <field name="over_credit" groups="partner_credit_limit.group_partner_credit_limit" />
+
+            </field>
+        </field>
+    </record>
+
+</odoo>

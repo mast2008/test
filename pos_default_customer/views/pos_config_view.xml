@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="pos_config_view_form_inherit_ip" model="ir.ui.view">
+            <field name="name">pos.config.view.form.inherit.ip</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='category_reference']" position="after">
+                    <div class="col-12 col-lg-6 o_setting_box" title="Default Cusotmer in POS Order.">
+                        <div class="o_setting_right_pane">
+                            <label for="default_partner_id"/>
+                            <div class="text-muted">
+                                Default Customer.
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="default_partner_id" colspan="4" nolabel="1"/>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+                <div id="iface_invoicing" position="after">
+                    <!-- restrict invoice download -->
+                    <div class="col-12 col-lg-6 o_setting_box" id="iface_invoicing" attrs="{'invisible': [('module_account','=',False)]}">
+                        <div class="o_setting_left_pane">
+                            <field name="restrict_inv_download"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="restrict_inv_download"/>
+                            <div class="text-muted" id="restrict_inv_download">
+                               POS restrict invoice download
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Auto Invoice creation -->
+                    <div class="col-12 col-lg-6 o_setting_box" id="iface_invoicing" attrs="{'invisible': [('module_account','=',False)]}">
+                        <div class="o_setting_left_pane">
+                            <field name="restrict_auto_inv_creation"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="restrict_auto_inv_creation"/>
+                            <div class="text-muted" id="restrict_auto_inv_creation">
+                               POS restrict auto invoice
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </field>
+        </record>
+    </data>
+</odoo>

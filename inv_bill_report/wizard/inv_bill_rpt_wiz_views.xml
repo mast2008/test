@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_from_inv_bill_rpt_wiz" model="ir.ui.view">
+            <field name="name">inv.bill.rpt.wiz.form</field>
+            <field name="model">inv.bill.rpt.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Sales &amp; Purchase Tax Report">
+                	<group>
+	                   <group col='4' colspan='4' string="Period">
+                           <field name="date_from"/>
+                           <field name="date_to"/>
+	                	</group>
+                    	<group string="Advanced Search" col='4' colspan='4'>
+                    		<field name="customer_ids" domain="[('customer_rank','&gt;', 0)]" context="{'res_partner_search_mode': 'customer'}" widget='many2many_tags' options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                    	    <field name="vendor_ids" domain="[('supplier_rank','&gt;', 0)]" context="{'res_partner_search_mode': 'supplier'}" widget='many2many_tags' options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                            <field name="incl_inv_credit_note" invisible="0"/>
+                            <field name="incl_bill_credit_note" invisible="0"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="generate_report" context="{'file_type':'xls'}" string="Download Excel" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+       	<record id="action_inv_bill_rpt_wiz" model="ir.actions.act_window">
+            <field name="name">Sale &amp; Purchase Tax Report</field>
+            <field name="res_model">inv.bill.rpt.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+       <menuitem id="menu_report_inv_bill"
+            name="Sale &amp; Purchase Tax Report"
+            sequence='10'
+            parent="account.menu_finance_reports"
+            action="action_inv_bill_rpt_wiz"
+       />
+</odoo>

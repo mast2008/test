@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="report_picking" inherit_id="stock.report_picking">
+		<div name="div_sched_date" position="after">
+			<div t-if="o.picking_type_code in ['incoming','internal']" class="col-auto" >
+				<strong t-if="o.picking_type_code == 'incoming' ">Delivery To: </strong>
+              	<strong t-if="o.picking_type_code == 'internal' ">Local Transfer: </strong>
+				<br/>
+				<span t-field="o.location_dest_id" t-if="o.picking_type_code == 'incoming' "/>
+                 <t t-if="o.picking_type_code == 'internal' ">
+                 	<span t-field="o.location_id"/>
+                 	<span>&#10132;</span>
+                 	<span t-field="o.location_dest_id"/>
+                 </t>
+			</div>
+		</div>
+	</template>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="work_entry_type_ot_normal" model="hr.work.entry.type">
+            <field name="name">Overtime Normal Day</field>
+            <field name="is_leave">False</field>
+			<field name="color">0</field>
+			<field name="code">Rests</field>
+        </record>
+		
+		<record id="work_entry_type_ot_holiday" model="hr.work.entry.type">
+            <field name="name">Overtime Holiday</field>
+            <field name="is_leave">False</field>
+			<field name="color">0</field>
+			<field name="code">Holidays</field>
+        </record>
+		
+		<record id="work_entry_type_sign_out" model="hr.work.entry.type">
+            <field name="name">Early Sign out</field>
+            <field name="is_leave">False</field>
+			<field name="color">0</field>
+			<field name="code">Earlys</field>
+        </record>
+		
+		<record id="work_entry_type_sign_in" model="hr.work.entry.type">
+            <field name="name">Late Sign in</field>
+            <field name="is_leave">False</field>
+			<field name="color">0</field>
+			<field name="code">Lates</field>
+        </record>
+		
+		<record id="work_entry_type_absent" model="hr.work.entry.type">
+            <field name="name">Absent Days</field>
+            <field name="is_leave">False</field>
+			<field name="color">0</field>
+			<field name="code">Absents</field>
+        </record>
+
+
+    </data>
+</openerp>

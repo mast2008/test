@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+		<menuitem id="partner_ledger_report_menu"
+				  name="Receivable Payable Report"
+				  parent="account.menu_finance_reports"
+				  action="action_partner_ledger_wizard_form"
+				  sequence="8"/>
+        
+<!--  parent="account.menu_finance_reports"-->
+
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_release_user,hr.release.user,model_hr_release,base.group_user,1,1,1,0
+access_release_manager,hr.release.manager,model_hr_release,hr.group_hr_manager,1,1,1,1
+access_release_reason_user,hr.release.reason.user,model_hr_release_reason,base.group_user,1,0,0,0
+access_release_reason_manager,hr.release.reason.manager,model_hr_release_reason,hr.group_hr_manager,1,1,1,1
+access_release_compute_manager,hr.release.compute.manager,model_hr_release_compute,hr.group_hr_manager,1,1,1,1

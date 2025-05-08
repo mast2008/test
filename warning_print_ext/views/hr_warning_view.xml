@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_warning_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.warning.form.inherit</field>
+            <field name="model">hr.warning</field>
+            <field name="inherit_id" ref="hr_warning.hr_warning_view_form"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="w_type" />
+                </field>
+                <field name="date" position="after">
+                    <field name="f_date" />
+                    <field name="refused" />
+                </field>
+                 <field name="expiry_date" position="after">
+                    <field name="hr_date" />
+                    <field name="refused_date" />
+                </field>
+                 <xpath expr="//group[1]" position="after">
+                    <group>
+
+                                <field name="desc"  readonly="state not in ['new']"/>
+                                <field name="steps"  readonly="state not in ['new']"/>
+                                <field name="step_not_imp"  readonly="state not in ['new']"/>
+                                <field name="explanation"  readonly="state not in ['new']"/>
+
+                    </group>
+                 </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

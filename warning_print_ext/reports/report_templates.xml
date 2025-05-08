@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <template id="report_hr_warning_ext">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <div class="header" >
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <img t-if="o.company_id.print_out_logo" t-att-src="image_data_uri(o.company_id.print_out_logo)" style="max-height: 100px;" alt="Logo"/>
+                                    <h3>Disciplinary Action Form</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" align="right">
+                                    Date:<span t-esc="datetime.datetime.now().strftime('%m-%d-%Y')"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="page">
+                            <table width="98%"  style="border-color: black;">
+                                <tr> <br/>
+                                    <td colspan="2" style="border:1px solid black;border-bottom: 1px solid white; border-right-style: none">
+                                       <br/>Associate Name:<span t-field="o.employee_id.name" />
+                                    </td>
+                                     <td  style="border:1px solid black;border-bottom: 1px solid white; border-left-style: none">
+                                         <br/>Ass. #:<span t-field="o.employee_id.registration_number" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border:1px solid black;border-right-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        Department: <span t-field="o.employee_id.department_id.name" />
+                                    </td>
+                                    <td style="border:1px solid black;border-right-style: none;border-left-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        Position: <span t-field="o.employee_id.job_id.name" />
+                                    </td>
+                                    <td  style="border:1px solid black;border-left-style: none;border-bottom: 1px solid white;border-top: 1px solid white;" >
+                                        Date of Hire: <span t-field="o.employee_id.first_contract_date" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:1px solid black;border-top: 1px solid white;border-left-style: none">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                      <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;border-right-style: none;padding:5px" align="center">
+                                          <br/>
+                                          <t t-if="o.w_type == 'verbal'">
+                                              <i class="fa fa-check" style="color:black;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Verbal Counseling Session</span>
+                                          </t>
+                                          <t t-if="o.w_type != 'verbal'">
+                                              <i class="fa fa-check" style="color:white;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Verbal Counseling Session</span>
+                                          </t>
+                                          <t t-if="o.w_type == 'fir_w'">
+                                              <i class="fa fa-check" style="color:black;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">1st Written Warning</span>
+                                          </t>
+                                          <t t-if="o.w_type != 'fir_w'">
+                                              <i class="fa fa-check" style="color:white;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">1st Written Warning</span>
+                                          </t>
+                                           <t t-if="o.w_type == 'sec_w'">
+                                              <i class="fa fa-check" style="color:black;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">2nd Written Warning</span>
+                                          </t>
+                                          <t t-if="o.w_type != 'sec_w'">
+                                              <i class="fa fa-check" style="color:white;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">2nd Written Warning</span>
+                                          </t>
+                                           <t t-if="o.w_type == 'final'">
+                                              <i class="fa fa-check" style="color:black;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Final</span>
+                                          </t>
+                                          <t t-if="o.w_type != 'final'">
+                                              <i class="fa fa-check" style="color:white;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Final</span>
+                                          </t>
+                                      </td>
+                                 </tr>
+                                <tr>
+                                      <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;border-right-style: none;padding:5px" align="center">
+                                          <t t-if="o.w_type == 'dismissal'">
+                                              <i class="fa fa-check" style="color:black;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Dismissal</span>
+                                          </t>
+                                          <t t-if="o.w_type != 'dismissal'">
+                                              <i class="fa fa-check" style="color:white;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Dismissal</span>
+                                          </t>
+                                          <t t-if="o.w_type == 'suspension'">
+                                              <i class="fa fa-check" style="color:black;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Suspension Pending Investigation</span>
+                                          </t>
+                                          <t t-if="o.w_type != 'suspension'">
+                                              <i class="fa fa-check" style="color:white;border:2px solid black;"></i>
+                                              <span style="margin-left:10px">Suspension Pending Investigation</span>
+                                          </t><br/>
+
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <strong>Date &amp; Time of Incident:</strong> <span t-field="o.date" /><br/>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <strong>Description of Incident:</strong> <span t-field="o.desc" /><br/>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="margin-bottom:100px;border:1px solid black;border-top: 1px solid white;">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Steps for Improvement:</strong> <span t-field="o.steps" /><br/>
+                                    </td>
+
+                                </tr>
+                                 <tr>
+                                    <td colspan="3" style="margin-bottom:100px;border:1px solid black;border-top: 1px solid white;">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Steps to be taken if Action/Behavior Does Not Improve:</strong> <span t-field="o.step_not_imp" /><br/>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td colspan="3" style="margin-bottom:100px;border:1px solid black;border-top: 1px solid white;">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Specific Follow-Up Date If Applicable:</strong> <span t-field="o.f_date" /><br/>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Associate Explanation of Incident:</strong> <span t-field="o.explanation" /><br/>
+                                    </td>
+                                </tr>
+
+                                  <tr>
+                                    <td colspan="2" style="border:1px solid black;border-right-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Associate Signature/Date:</strong>
+                                    </td>
+                                      <td style="border:1px solid black;border-left-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Printed Name:</strong><span t-field="o.employee_id.name" />
+                                    </td>
+                                  </tr>
+                                <tr>
+                                    <td colspan="2" style="border:1px solid black;border-right-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Manager Signature/Date:</strong>
+                                    </td>
+                                      <td style="border:1px solid black;border-left-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>Printed Name:</strong><span t-field="o.employee_id.parent_id.name" />
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td colspan="3" style="margin-bottom:100px;border:1px solid black;border-top: 1px solid white;">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border:1px solid black;border-right-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><t t-if="o.refused == True">
+                                              <i class="fa fa-check" style="color:black;border:2px solid black;"></i>
+                                              <span style="margin-left:10px"><strong>Employee Refused to Sign/Date </strong></span><span t-field="o.refused_date" />
+                                          </t>
+                                          <t t-if="o.refused != True">
+                                              <i class="fa fa-check" style="color:white;border:2px solid black;"></i>
+                                              <span style="margin-left:10px"><strong>Employee Refused to Sign/Date </strong></span><span t-field="o.refused_date" />
+                                          </t><br/>
+                                    </td>
+                                      <td style="border:1px solid black;border-left-style: none;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/><strong>HR/Witness / Date:</strong><span t-field="o.hr_date" />
+                                    </td>
+                                  </tr>
+                                <tr>
+                                    <td colspan="3" style="border:1px solid black;border-bottom: 1px solid white;border-top: 1px solid white;">
+                                        <br/>HRMS
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="3" style="margin-bottom:100px;border:1px solid black;border-top: 1px solid white;">
+                                        <br/>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+         </template>
+
+
+    </data>
+</odoo>

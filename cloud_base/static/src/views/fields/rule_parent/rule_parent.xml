@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="cloud_base.RuleParent" owl="1">
+        <div t-if="getResModel(props)" class="mb4">
+            <ModelFieldSelector fieldName="selectorFieldName"
+                                resModel="getResModel(props)" 
+                                readonly="props.readonly" 
+                                isDebugMode="selectorIsDebugMode"
+                                update.bind="update"
+                                filter="getFieldsFilter.bind(this)"
+            />
+        </div>
+    </t>
+
+</templates>

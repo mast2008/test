@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="cloud.base.AttachmentBox" t-inherit="mail.AttachmentBox" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.attachmentList']" position="before">
+            <div t-if="props.chatter.thread.folderExist">
+                <CloudJsTreeContainer t-props="getJsTreeProps('folders')"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('o_AttachmentBox')]" position="attributes">
+            <attribute name="class" add="cb-attachment-box" separator=" "/>
+        </xpath>
+    </t>
+
+</templates>

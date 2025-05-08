@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="mt_cloud_client_error" model="mail.message.subtype">
+            <field name="name">Connection state</field>
+            <field name="res_model">clouds.client</field>
+            <field name="default" eval="True"/>
+            <field name="hidden" eval="False"/>
+            <field name="internal" eval="True"/>
+            <field name="description">Connection state: errors, warnings</field>
+            <!-- Odoo 17 now tracks sequence for subtype ordering -->
+            <field name="sequence" eval="10"/>
+        </record>
+
+        <record id="mt_cloud_client_success" model="mail.message.subtype">
+            <field name="name">Connection success</field>
+            <field name="res_model">clouds.client</field>
+            <field name="default" eval="False"/>
+            <field name="hidden" eval="True"/>
+            <field name="internal" eval="True"/>
+            <field name="description">Connection success</field>
+            <!-- Sequence for ordering in Odoo 17 -->
+            <field name="sequence" eval="20"/>
+        </record>
+
+    </data>
+</odoo>

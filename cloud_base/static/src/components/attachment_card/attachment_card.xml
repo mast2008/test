@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="cloudBaseAttachment" t-inherit="mail.AttachmentCard" t-inherit-mode="extension">
+        <t t-if="props.attachment.type === 'url'" position="attributes">
+            <attribute name="t-if">props.attachment.type === 'url' and !props.attachment.cloudURL</attribute>
+        </t>
+        <xpath expr="//div[hasclass('o_AttachmentCard_asideItem')]" position="inside">
+            <t t-if="props.attachment.cloudURL">
+                <button class="o_AttachmentCard_asideItem o_AttachmentCard_cloud btn d-flex justify-content-center align-items-center w-100 h-100 rounded-0 bg-300" t-on-click="() => this.props.onOpenCloudLink(props.attachment)" title="Open in clouds">
+                    <i class="fa fa-cloud"/>
+                </button>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

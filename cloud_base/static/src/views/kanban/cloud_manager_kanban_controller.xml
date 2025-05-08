@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    
+    <t t-name="cloud_base.CloudManagerKanbanView" t-inherit="web.KanbanView" t-inherit-mode="primary" owl="1">
+        <xpath expr="//Layout" position="attributes">
+            <attribute name="className">'cb-content'</attribute>
+        </xpath>
+    </t>
+    <t t-name="cloud_base.CloudBaseViewButtons" owl="1">
+        <div t-if="props.showButtons" class="o_cp_buttons d-flex align-items-baseline" role="toolbar" aria-label="Main actions">
+            <button type="button" class="btn btn-primary" t-on-click.stop.prevent="() => this.uploadFileInputRef.el.click()">
+                <i class="fa fa-download"></i> Upload
+            </button>
+            <input type="file" multiple="true" t-ref="uploadFileInput" class="o_input_file o_hidden" t-on-change.stop="_onAddAttachment"/>
+            <button t-if="model.cloudsFolderId" type="button" class="btn btn-secondary" t-on-click="() => this._onSelectAll()">
+                Select this folder attachments
+            </button>
+        </div>
+    </t>
+
+</templates>

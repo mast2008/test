@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="cloud_base.CloudJsTreeContainer" owl="1">
+        <div class="jstr-panel-body w-100">
+            <div class="jstr-search-row">
+                <div class="jstr-search-view">
+                    <i class="fa fa-search jstr-search-icon jstr-search-icon-search"
+                       t-on-click="_onSearchExecute"
+                       role="button"
+                       aria-label="Search"/>
+                    <i class="fa fa-ban jstr-search-icon jstr-search-icon-trash"
+                       t-on-click="_onSearchClear"
+                       role="button"
+                       aria-label="Clear search"/>
+                    <div class="jstr-search-input-container">
+                        <input t-att-id="'jstr_input_' + id"
+                               placeholder="Search"
+                               t-on-change="_onSearchChange"
+                               t-on-keyup="_onSearchkeyUp"
+                               aria-label="Search input"/>
+                    </div>
+                </div>
+            </div>
+            <div t-att-id="id"></div>
+            <t t-if="props.kanbanView">
+                <div class="jstr-panel-body mb-3">
+                    <button class="jstr-functional-button jstr-pull-right me-3 mt-3"
+                            t-on-click="_onAddRootTag"
+                            type="button">
+                        Create new folder
+                    </button>
+                </div>
+            </t>
+        </div>
+    </t>
+
+</templates>
